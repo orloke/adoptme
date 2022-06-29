@@ -1,5 +1,5 @@
 import React from 'react';
-import Container from '../../components/container';
+import Container from '../../components/Container';
 import FormLogin from '../../components/Login';
 
 // import { Container } from './styles';

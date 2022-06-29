@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import "./styles-login.css";
-import banner from '../../assets/images/login.png';
+// import banner from '../../assets/images/login.png'
 
 
 // import { Container } from './styles';
@@ -31,10 +31,10 @@ const FormLogin: React.FC = () => {
     <div className="background-login">
     <div className="containerForm-login">
       <div className="divImageLogin">
-        <img src={banner} alt="bannerlogin" />
+        <img src='' alt="bannerlogin" />
       </div>
       <h3 className='titulo-login'>Entre na sua conta</h3>
-      <p>Não possui conta? <a href=''>Cadastre-se</a></p>
+      <p>Não possui conta? <a href='/cadastro'>Cadastre-se</a></p>
       <Form className="form-login" onSubmit={formik.handleSubmit}>
         <Form.Group className="mb-1 espaco-login">
           <Form.Control className='linha-login' id="email" type="email" placeholder="E-mail" value={formik.values.email} onChange={formik.handleChange} isInvalid={formik.touched.email && !!formik.errors.email} isValid={formik.touched.email && !formik.errors.email} />
@@ -43,7 +43,7 @@ const FormLogin: React.FC = () => {
           <Form.Control className='linha-login' id="password" autoComplete='on' type="password" placeholder="Senha" value={formik.values.password} onChange={formik.handleChange} isInvalid={formik.touched.password && !!formik.errors.password} isValid={formik.touched.password && !formik.errors.password} />
         </Form.Group>
         <div className="esqueciSenha">
-            <a className='esqueciSenha2' href=''>Esqueci minha senha</a>
+            <a className='esqueciSenha2' href='#'>Esqueci minha senha</a>
         </div>        
         <Button variant="" type="submit" className='botao-login'>
           Entrar

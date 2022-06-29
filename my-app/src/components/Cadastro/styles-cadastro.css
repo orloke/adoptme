@@ -1,0 +1,129 @@
+
+div.background-cadastro{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(72, 72, 72);
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+div.containerForm-cadastro{
+    max-width: 450px;
+    min-width: 350px;
+    max-height: 750px;
+    min-height: 700px;
+    width: 32%;
+    height: 78%;
+    overflow-x: hidden;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 1px solid #909090;
+}
+
+.divImage-container, h3  {
+    text-align: center;
+}
+
+.divImage-container img {
+    height: 161px;
+}
+
+div h3.titulo-cadastro {
+    padding: 0%;
+    margin-bottom: 0% !important;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+div.form-cadastro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+input::placeholder {
+    text-align: center;
+    color: #909090;
+    font-size: 22px;
+    font-family: "Questrial";
+}
+
+div button.botao-cadastro {
+    background-color: gray!important;
+    height:35px;
+    border: 0 none !important;
+    border-radius: 10px !important;
+    color: #fff !important;
+    font-weight: 300 !important;
+    transition: 0.4s ease-in-out !important;
+    font-size: 24px;
+    font-weight: 300;
+    width: 330px;
+
+}
+
+div.espaco-cadastro{
+    padding-bottom: 5px;
+}
+
+.linha-cadastro{
+    width: 320px;
+    height: 35px;
+    margin: 8px;
+    border: 1px solid 
+    #909090;
+    font-size: 24px;
+    
+}
+
+button.botao:hover {
+    background-color: #76BB4C !important;
+    border: transparent !important;
+    border-radius: 13px !important;
+    color: #000 !important;
+    font-weight: 600 !important;
+}
+
+div a.link-cadastro {
+    padding-top: 20px;
+    text-decoration: none;
+    color: #555555;
+    font-size: 18px;
+    font-weight: 400;
+    transition: ease-in-out 0.2s;
+    display: flex;
+    justify-content: center;
+    transition: 0.3s ease-in-out;
+}
+
+div a.link:hover {
+    color: #191b18 !important;
+}
+
+div :link.link-button-enviar {
+    width: 100%;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: none;
+    color: #909090;
+    background-color: #76BB4C;
+    font-size: 35px;
+}
+
+
+div :link{
+    text-decoration: none;
+    color: #909090;
+    font-size: 18px;
+}

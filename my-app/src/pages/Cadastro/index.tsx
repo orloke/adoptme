@@ -1,6 +1,6 @@
 import React from 'react';
 import FormCadastro from '../../components/Cadastro';
-import Container from '../../components/container';
+import Container from '../../components/Container';
 
 // import { Container } from './styles';
 
