@@ -9,13 +9,15 @@ div.background-login{
     align-items: center;
     justify-content: center;
     overflow-x: hidden;
+    margin: 0%;
+    padding: 0%;
 }
 
 div.containerForm-login{
     max-width: 380px;
     min-width: 350px;
-    max-height: 500px;
-    min-height: 450px;
+    max-height: 650px;
+    min-height: 550px;
     width: 28%;
     height: 68%;
     overflow-x: hidden;
@@ -24,6 +26,7 @@ div.containerForm-login{
     align-items: center;
     flex-direction: column;
     border: 1px solid #909090;
+    padding: 0%;
 }
 
 .divImageLogin, h3.titulo-login  {
@@ -32,6 +35,10 @@ div.containerForm-login{
 
 .divImageLogin img {
     height: 150px;
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+    border-radius: 10px;
 }
 
 div h3.tituo-login {
@@ -59,14 +66,14 @@ div.esqueciSenha {
 
 input::placeholder {
     text-align: center;
-    color: #909090;
-    font-size: 22px;
+    color: black;
+    font-size: 20px;
     font-family: "Questrial";
 }
 
 button.botao-login {
-    background-color: gray !important;
-    height:35px;
+    background-color: black !important;
+    height:45px;
     border: 0 none !important;
     color: #fff !important;
     font-weight: 300 !important;

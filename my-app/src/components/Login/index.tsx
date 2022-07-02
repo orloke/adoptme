@@ -4,13 +4,18 @@ import { Alert, Button, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
+import { loginUsuario } from '../../service/user';
+import { signIn } from '../../store/user';
 import "./styles-login.css";
-// import banner from '../../assets/images/login.png'
+import jwt_decode from "jwt-decode";
+import baseAPI from '../../service/baseAPI';
+const Banner = require('../../assets/images/login.png'); 
+
 
 
 // import { Container } from './styles';
 
-const FormLogin: React.FC = () => {
+const FormLogin = () => {
 
   const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -21,9 +26,28 @@ const FormLogin: React.FC = () => {
         },
         validationSchema: Yup.object({
           email: Yup.string().email('Por favor preencha com um email válido').required('Por favor preencha com seu email'),
-          password: Yup.string().required('Por favor preencha com uma senha valida').min(8, 'Sua password deve ter no mínimo 8 caracteres').max(12, 'Sua password deve ter no máximo 12 caracteres'),
+          password: Yup.string().required('Por favor preencha com uma senha valida').min(6, 'Sua password deve ter no mínimo 8 caracteres').max(12, 'Sua password deve ter no máximo 12 caracteres'),
         }),
-        onSubmit: () => {}
+        onSubmit: async values => {
+          const { token, user} = await loginUsuario(values);
+          // console.log(token);
+          // const decoded = jwt_decode(token);          
+          // localStorage.setItem('token', token);  
+          // localStorage.setItem('user', JSON.stringify(decoded));
+          dispatch(signIn({token}));
+          //@ts-ignore
+          baseAPI.defaults.headers["Authorization"] = `Bearer ${token}`
+          navigate("/cadastro")
+        }
+
+        // onSubmit: async values => {
+        //   const { accessToken, user } = await loginUsuario(values);
+        //   // console.log(accessToken);          
+        //   dispatch(signIn({accessToken}))
+        //   //@ts-ignore
+        //   baseAPI.defaults.headers["Authorization"] = `Bearer ${accessToken}`
+        //   navigate("/cadastro")
+        // }
       });
 
   return(
@@ -31,7 +55,7 @@ const FormLogin: React.FC = () => {
     <div className="background-login">
     <div className="containerForm-login">
       <div className="divImageLogin">
-        <img src='' alt="bannerlogin" />
+        <img src={Banner} alt="bannerlogin" />
       </div>
       <h3 className='titulo-login'>Entre na sua conta</h3>
       <p>Não possui conta? <a href='/cadastro'>Cadastre-se</a></p>

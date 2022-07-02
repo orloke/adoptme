@@ -4,8 +4,11 @@ import { Alert, Button, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
-// import banner from '../../assets/images/login.png';
-import "./styles-cadastro.css"
+import { cadastroUsuario } from '../../service/user';
+import { signIn } from '../../store/user';
+import "./styles-cadastro.css";
+const Banner = require('../../assets/images/login.png'); 
+
 
 // import { Container } from './styles';
 
@@ -25,7 +28,13 @@ const FormCadastro: React.FC = () => {
       password: Yup.string().required('Por favor preencha com uma password').min(8, 'Sua password deve ter no mínimo 8 caracteres').max(12, 'Sua password deve ter no máximo 12 caracteres'),
       confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'As passwords não são iguais').required('Por favor preencha com uma password'),
     }),
-    onSubmit: () => { }
+    onSubmit: async values => {
+      const { accessToken } = await cadastroUsuario(values);
+      dispatch(signIn({accessToken}))
+      //@ts-ignore
+      baseAPI.defaults.headers["Authorization"] = `Bearer ${accessToken}`
+      navigate("/login")
+    }
   });
 
   return (
@@ -33,7 +42,7 @@ const FormCadastro: React.FC = () => {
     <div className="background-cadastro">
       <div className="containerForm-cadastro">
         <div className="divImage-container">
-          <img src='' alt="logo" />
+          <img src={Banner} alt="logo" />
         </div>
         <h3 className="titulo-cadastro">Cadastre-se</h3>
         <Form className="form-cadastro" onSubmit={formik.handleSubmit}>
